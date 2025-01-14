@@ -15,6 +15,16 @@ const Route = new HyperExpress.Router();
 Route.get("/", HomeController.index);
 
 /**
+ * Game Routes
+ * Routes for game-related pages
+ * ------------------------------------------------
+ * GET  /about - About page
+ * GET  /tech-stack - Tech Stack page
+ */
+Route.get("/about", HomeController.about);
+Route.get("/tech-stack", HomeController.techStack);
+
+/**
  * Authentication Routes
  * Routes for handling user authentication
  * ------------------------------------------------

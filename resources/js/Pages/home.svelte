@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import gsap from 'gsap';
+  import { router } from '@inertiajs/svelte';
   
   let mounted = false;
   
@@ -27,12 +28,12 @@
     // Add your game start logic here
   }
   
-  function loadGame() {
-    // Add your load game logic here
-  }
-  
   function showAbout() {
-    // Add your about screen logic here
+    router.visit('/about');
+  }
+
+  function showTechStack() {
+    router.visit('/tech-stack');
   }
 </script>
 
@@ -51,7 +52,7 @@
       
       <div class="flex flex-col gap-4">
         <button 
-          class="relative w-64 h-16 bg-transparent border-2 border-white/30 
+          class="game-button relative w-64 h-16 bg-transparent border-2 border-white/30 
                  text-white text-xl font-bold uppercase tracking-wider
                  transition-all duration-300 overflow-hidden
                  hover:border-white/60 hover:scale-105
@@ -66,22 +67,7 @@
         </button>
         
         <button 
-          class="relative w-64 h-16 bg-transparent border-2 border-white/30 
-                 text-white text-xl font-bold uppercase tracking-wider
-                 transition-all duration-300 overflow-hidden
-                 hover:border-white/60 hover:scale-105
-                 hover:[text-shadow:0_0_20px_rgba(255,255,255,0.5)]
-                 before:content-[''] before:absolute before:inset-0
-                 before:bg-white/10 before:scale-x-0 before:origin-left
-                 before:transition-transform before:duration-300
-                 hover:before:scale-x-100"
-          on:click={loadGame}
-        >
-          <span class="relative z-10">Load</span>
-        </button>
-        
-        <button 
-          class="relative w-64 h-16 bg-transparent border-2 border-white/30 
+          class="game-button relative w-64 h-16 bg-transparent border-2 border-white/30 
                  text-white text-xl font-bold uppercase tracking-wider
                  transition-all duration-300 overflow-hidden
                  hover:border-white/60 hover:scale-105
@@ -93,6 +79,21 @@
           on:click={showAbout}
         >
           <span class="relative z-10">About</span>
+        </button>
+
+        <button 
+          class="game-button relative w-64 h-16 bg-transparent border-2 border-white/30 
+                 text-white text-xl font-bold uppercase tracking-wider
+                 transition-all duration-300 overflow-hidden
+                 hover:border-white/60 hover:scale-105
+                 hover:[text-shadow:0_0_20px_rgba(255,255,255,0.5)]
+                 before:content-[''] before:absolute before:inset-0
+                 before:bg-white/10 before:scale-x-0 before:origin-left
+                 before:transition-transform before:duration-300
+                 hover:before:scale-x-100"
+          on:click={showTechStack}
+        >
+          <span class="relative z-10">Tech Stack</span>
         </button>
       </div>
     </div>
