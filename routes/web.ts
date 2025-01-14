@@ -2,6 +2,7 @@ import AuthController from "../app/controllers/AuthController";
 import Auth from "../app/middlewares/auth"
 import HomeController from "../app/controllers/HomeController";
 import AssetController from "../app/controllers/AssetController";
+import PlayController from "../app/controllers/PlayController";
 import HyperExpress from 'hyper-express';
 
 const Route = new HyperExpress.Router();
@@ -20,9 +21,11 @@ Route.get("/", HomeController.index);
  * ------------------------------------------------
  * GET  /about - About page
  * GET  /tech-stack - Tech Stack page
+ * GET  /play - Game page
  */
 Route.get("/about", HomeController.about);
 Route.get("/tech-stack", HomeController.techStack);
+Route.get("/play", PlayController.showGame);
 
 /**
  * Authentication Routes

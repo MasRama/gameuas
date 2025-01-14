@@ -3,7 +3,7 @@
   import { router } from '@inertiajs/svelte';
   
   function startGame() {
-    // Add your game start logic here
+    router.visit('/play');
   }
   
   function showAbout() {
