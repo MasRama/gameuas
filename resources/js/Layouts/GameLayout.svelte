@@ -2,51 +2,69 @@
   import { onMount } from 'svelte';
   import gsap from 'gsap';
   
+  export let showBackButton = true;
   let mounted = false;
   
   onMount(() => {
     mounted = true;
     
     gsap.from('.content-animate', {
-      duration: 0.8,
-      y: 30,
+      duration: 0.5,
+      y: 20,
       opacity: 0,
-      ease: 'power4.out'
+      ease: 'back.out(1.4)'
     });
   });
 </script>
 
 {#if !mounted}
-  <div class="fixed inset-0 flex items-center justify-center bg-black">
-    <div class="text-white text-2xl font-bold [text-shadow:0_0_10px_rgba(255,255,255,0.5)]">
+  <div class="fixed inset-0 flex items-center justify-center bg-[#1a1b2b]">
+    <div class="text-white text-xl font-pixel animate-bounce">
       Loading...
     </div>
   </div>
 {:else}
-  <div class="fixed inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#16213e] [perspective:1000px]">
-    <div class="flex flex-col items-center gap-12 p-8 [transform-style:preserve-3d]">
-      <h1 class="text-6xl font-bold text-white mb-8 tracking-[4px] [text-shadow:0_0_20px_rgba(255,255,255,0.3),0_0_40px_rgba(255,255,255,0.2)]">
+  <div class="fixed inset-0 w-full h-full flex items-center justify-center bg-gradient-to-b from-[#2a2f4c] to-[#1a1b2b]">
+    <!-- Subtle pixel pattern overlay -->
+    <div class="absolute inset-0 opacity-5 bg-pixel-pattern"></div>
+    
+    <div class="relative flex flex-col items-center gap-8 p-8 max-w-4xl w-full">
+      <h1 class="text-5xl font-pixel text-white mb-4 tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
         UNIKAMA ADVENTURE
       </h1>
       
-      <div class="content-animate">
+      <div class="content-animate w-full">
         <slot />
       </div>
 
-      <button 
-        class="content-animate mt-8 relative w-64 h-16 bg-transparent border-2 border-white/30 
-               text-white text-xl font-bold uppercase tracking-wider
-               transition-all duration-300 overflow-hidden
-               hover:border-white/60 hover:scale-105
-               hover:[text-shadow:0_0_20px_rgba(255,255,255,0.5)]
-               before:content-[''] before:absolute before:inset-0
-               before:bg-white/10 before:scale-x-0 before:origin-left
-               before:transition-transform before:duration-300
-               hover:before:scale-x-100"
-        on:click={() => window.history.back()}
-      >
-        <span class="relative z-10">Back</span>
-      </button>
+      {#if showBackButton}
+        <button 
+          class="content-animate mt-4 px-8 py-3 bg-gradient-to-br from-[#4a5568] to-[#2d3748] 
+                 border-t-2 border-l border-r border-b-4 border-[#1a202c]
+                 text-white font-pixel text-lg uppercase tracking-wide
+                 transform transition-all duration-200 active:translate-y-1 active:border-b-2
+                 hover:from-[#4a5568] hover:to-[#3a4556] focus:outline-none
+                 shadow-lg hover:shadow-xl"
+          on:click={() => window.history.back()}
+        >
+          Back
+        </button>
+      {/if}
     </div>
   </div>
-{/if} 
+{/if}
+
+<style>
+  @font-face {
+    font-family: 'PixelFont';
+    src: url('/assets/fonts/Minecraft.ttf') format('truetype');
+  }
+
+  .font-pixel {
+    font-family: 'PixelFont', system-ui, sans-serif;
+  }
+
+  .bg-pixel-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+</style> 
