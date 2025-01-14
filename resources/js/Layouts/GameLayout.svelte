@@ -39,15 +39,11 @@
 
       {#if showBackButton}
         <button 
-          class="content-animate mt-4 px-8 py-3 bg-gradient-to-br from-[#4a5568] to-[#2d3748] 
-                 border-t-2 border-l border-r border-b-4 border-[#1a202c]
-                 text-white font-pixel text-lg uppercase tracking-wide
-                 transform transition-all duration-200 active:translate-y-1 active:border-b-2
-                 hover:from-[#4a5568] hover:to-[#3a4556] focus:outline-none
-                 shadow-lg hover:shadow-xl"
+          class="content-animate mb-8 menu-button flex items-center justify-center gap-2 w-48"
           on:click={() => window.history.back()}
         >
-          Back
+          <span class="menu-icon">🔙</span>
+          <span>Back</span>
         </button>
       {/if}
     </div>
@@ -66,5 +62,29 @@
 
   .bg-pixel-pattern {
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .menu-button {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #4a5568, #2d3748);
+    border: 2px solid #1a1b2b;
+    color: white;
+    font-family: 'PixelFont', system-ui, sans-serif;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .menu-button:hover {
+    transform: translateX(8px);
+    background: linear-gradient(to right, #9f7aea, #805ad5);
+    border-color: #b794f4;
+  }
+
+  .menu-icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.5));
   }
 </style> 
