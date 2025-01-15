@@ -41,7 +41,7 @@
             <h3 class="font-pixel text-[#9f7aea] mb-4 text-lg">Game Engine</h3>
             <ul class="space-y-3 text-gray-100 font-pixel text-lg">
               <li class="flex items-center justify-center gap-2">
-                <span class="text-[#9f7aea]">►</span> Custom Engine
+                <span class="text-[#9f7aea]">►</span> LAJU
               </li>
               <li class="flex items-center justify-center gap-2">
                 <span class="text-[#9f7aea]">►</span> Canvas API
