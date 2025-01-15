@@ -74,14 +74,14 @@
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" on:click={toggleQuestModal}></div>
     
     <!-- Modal Content -->
-    <div class="relative z-10 pixel-window bg-[#2d3748]/95 p-8 max-w-lg w-full mx-4">
+    <div class="relative z-10 pixel-window bg-[#2d3748]/95 p-6 max-w-lg w-full mx-4">
       <div class="text-center">
-        <h3 class="text-2xl font-pixel text-white mb-4">Level {currentLevel} Quest</h3>
+        <h3 class="text-xl font-pixel text-white mb-3">Level {currentLevel} Quest</h3>
         
-        <div class="instructions-box p-4 mb-6">
-          <p class="text-white font-pixel text-lg leading-relaxed">
-            {levelInstructions}
-          </p>
+        <div class="instructions-box p-4 mb-4 max-h-[60vh] overflow-y-auto">
+          <div class="text-white font-pixel leading-relaxed text-left">
+            {@html levelInstructions}
+          </div>
         </div>
         
         <button 
@@ -103,23 +103,23 @@
     <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" on:click={toggleControlsModal}></div>
     
     <!-- Modal Content -->
-    <div class="relative z-10 pixel-window bg-[#2d3748]/95 p-8 max-w-lg w-full mx-4">
+    <div class="relative z-10 pixel-window bg-[#2d3748]/95 p-6 max-w-lg w-full mx-4">
       <div class="text-center">
-        <h3 class="text-2xl font-pixel text-white mb-4">Game Controls</h3>
+        <h3 class="text-xl font-pixel text-white mb-3">Game Controls</h3>
         
-        <div class="instructions-box p-4 mb-6">
-          <div class="grid grid-cols-2 gap-4 text-white font-pixel">
+        <div class="instructions-box p-4 mb-4">
+          <div class="grid grid-cols-2 gap-4 text-white font-pixel text-sm">
             <div class="text-right">
               <p class="text-[#9f7aea]">Movement</p>
-              <p class="text-[#9f7aea] mt-4">Alternative</p>
-              <p class="text-[#9f7aea] mt-4">Action</p>
-              <p class="text-[#9f7aea] mt-4">Menu</p>
+              <p class="text-[#9f7aea] mt-3">Alternative</p>
+              <p class="text-[#9f7aea] mt-3">Action</p>
+              <p class="text-[#9f7aea] mt-3">Menu</p>
             </div>
             <div class="text-left">
               <p>WASD Keys</p>
-              <p class="mt-4">Arrow Keys</p>
-              <p class="mt-4">Space / Enter</p>
-              <p class="mt-4">Esc</p>
+              <p class="mt-3">Arrow Keys</p>
+              <p class="mt-3">Space / Enter</p>
+              <p class="mt-3">Esc</p>
             </div>
           </div>
         </div>
