@@ -12,28 +12,34 @@
       <img src="/assets/images/tree-pixel.png" alt="" class="w-full h-full object-contain transform scale-x-[-1]" />
     </div>
 
-    <div class="pixel-window bg-[#2d3748]/90 p-8 backdrop-blur-sm">
+    <div class="pixel-window bg-[#2d3748]/90 p-6 backdrop-blur-sm">
       <div class="max-w-2xl mx-auto text-center">
-        <h2 class="text-3xl font-pixel text-white mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
+        <h2 class="text-2xl font-pixel text-white mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
           About The Game
         </h2>
         
-        <div class="space-y-4 text-gray-100 font-pixel">
-          <div class="menu-button py-4">
-            <p class="text-base">
+        <div class="space-y-3 text-gray-100 font-pixel">
+          <div class="menu-button py-2">
+            <p class="text-sm">
               UNIKAMA ADVENTURE adalah game petualangan yang mengajak pemain menjelajahi dunia kampus Universitas PGRI Kanjuruhan Malang.
             </p>
           </div>
 
-          <div class="menu-button py-4">
-            <p class="text-base">
+          <div class="menu-button py-2">
+            <p class="text-sm">
               Dalam game ini, pemain akan menghadapi berbagai tantangan dan puzzle sambil mengenal lebih dekat tentang kehidupan kampus UNIKAMA.
             </p>
           </div>
 
-          <div class="menu-button py-4 bg-gradient-to-r from-[#9f7aea] to-[#805ad5]">
-            <p class="text-base italic">
-              ~ Dibuat sebagai project UAS dengan penuh semangat dan dedikasi ~
+          <div class="menu-button py-2">
+            <p class="text-sm">
+              Game ini dibuat sebagai pemenuhan tugas akhir mata kuliah Pemrograman Game Dasar di Program Studi Pendidikan Teknik Informatika, Universitas PGRI Kanjuruhan Malang.
+            </p>
+          </div>
+
+          <div class="menu-button py-2 bg-gradient-to-r from-[#9f7aea] to-[#805ad5]">
+            <p class="text-sm italic">
+              ~ Dibuat dengan ❤️ dan penuh dedikasi oleh Rama & Rezal ~
             </p>
           </div>
         </div>
