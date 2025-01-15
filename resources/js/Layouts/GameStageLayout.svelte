@@ -111,15 +111,11 @@
           <div class="grid grid-cols-2 gap-4 text-white font-pixel text-sm">
             <div class="text-right">
               <p class="text-[#9f7aea]">Movement</p>
-              <p class="text-[#9f7aea] mt-3">Alternative</p>
-              <p class="text-[#9f7aea] mt-3">Action</p>
-              <p class="text-[#9f7aea] mt-3">Menu</p>
+              <p class="text-[#9f7aea] mt-3">Interact</p>
             </div>
             <div class="text-left">
-              <p>WASD Keys</p>
-              <p class="mt-3">Arrow Keys</p>
-              <p class="mt-3">Space / Enter</p>
-              <p class="mt-3">Esc</p>
+              <p>Arrow Keys</p>
+              <p class="mt-3">F Key</p>
             </div>
           </div>
         </div>
