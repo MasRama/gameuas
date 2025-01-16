@@ -1,5 +1,6 @@
 <script lang="ts">
   import GameStageLayout from '../../Layouts/GameStageLayout.svelte';
+  import Character from '../../Components/Character.svelte';
   import { onMount } from 'svelte';
   
   export let currentLevel: number;
@@ -30,36 +31,62 @@
   `;
 
   let mapPreview: HTMLCanvasElement;
+  let gameContainer: HTMLDivElement;
   
   onMount(() => {
     const ctx = mapPreview.getContext('2d');
     if (ctx) {
-      // Draw simple map preview (placeholder)
-      ctx.fillStyle = '#2d3748';
-      ctx.fillRect(0, 0, 400, 300);
+      // Draw background
+      ctx.fillStyle = '#f8fafc';
+      ctx.fillRect(0, 0, 400, 256);
+      
+      // Draw grid
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.lineWidth = 1;
+      
+      // Vertical lines
+      for (let x = 0; x <= 400; x += 32) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 256);
+        ctx.stroke();
+      }
+      
+      // Horizontal lines
+      for (let y = 0; y <= 256; y += 32) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(400, y);
+        ctx.stroke();
+      }
       
       // Draw some placeholder elements
-      ctx.fillStyle = '#9f7aea';
-      ctx.fillRect(50, 50, 30, 30); // Player
-      
       ctx.fillStyle = '#48bb78';
-      ctx.fillRect(100, 100, 20, 20); // Item
+      ctx.fillRect(96, 96, 32, 32); // Item aligned to grid
       
       ctx.fillStyle = '#f56565';
-      ctx.fillRect(200, 150, 25, 25); // Enemy
+      ctx.fillRect(192, 160, 32, 32); // Enemy aligned to grid
     }
   });
 </script>
 
 <GameStageLayout {currentLevel} {maxLevel} {levelInstructions}>
-  <!-- Map Preview -->
+  <!-- Game Container -->
   <div class="relative">
-    <canvas 
-      bind:this={mapPreview}
-      width="400"
-      height="300"
-      class="pixel-border w-full bg-[#1a1b2b] image-rendering-pixel"
-    ></canvas>
+    <!-- Game Viewport - This will contain both map and character -->
+    <div class="game-viewport pixel-border bg-white">
+      <div class="game-world">
+        <canvas 
+          bind:this={mapPreview}
+          width="400"
+          height="256"
+          class="game-canvas image-rendering-pixel"
+        />
+
+        <!-- Character -->
+        <Character x={1} y={1} />
+      </div>
+    </div>
 
     <!-- Level Info Overlay -->
     <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 info-button py-3 px-8 bg-gradient-to-r from-[#2d3748]/95 to-[#1a1b2b]/95">
@@ -81,6 +108,28 @@
 
   :global(li) {
     margin-bottom: 0.5rem;
+  }
+
+  .game-viewport {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .game-world {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .image-rendering-pixel {
