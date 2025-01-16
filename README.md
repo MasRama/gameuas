@@ -4,7 +4,6 @@
 - **Mata Kuliah**: Pemrograman Game Dasar
 - **Program Studi**: Teknik Informatika
 - **Universitas**: Universitas PGRI Kanjuruhan Malang (UNIKAMA)
-- **Semester**: Ganjil 2023/2024
 
 ## 👥 Tim Pengembang
 1. Fatqan Ramadhiansyah (210403010050)
